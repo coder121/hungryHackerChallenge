@@ -1,14 +1,14 @@
 angular.module('todoController', [])
 
 	// inject the Todo service factory into our controller
-	.controller('mainController', ['$scope','$http','Todos', function($scope, $http, Todos) {
+	.controller('mainController', ['$scope','$http','Foods', function($scope, $http, Foods) {
 		$scope.formData = {};
 		$scope.loading = true;
         $scope.totalAmount ={}; 
 		// GET =====================================================================
 		// when landing on the page, get all todos and show them
 		// use the service to get all the todos
-		Todos.get()
+		Foods.get()
 			.success(function(data) {
 				$scope.todos = data;
                  
@@ -39,7 +39,7 @@ angular.module('todoController', [])
             }
 		};
         	$scope.getTotal=function(){
-                Todos.total()
+                Foods.total()
 			.success(function(data) {
 				 $scope.totalAmount=data;
                  

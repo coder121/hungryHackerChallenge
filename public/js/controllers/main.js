@@ -19,7 +19,7 @@ angular.module('todoController', [])
 
 		// CREATE ==================================================================
 		// when submitting the add form, send the text to the node API
-		$scope.createTodo = function() {
+		$scope.createOrder = function() {
 
 			// validate the formData to make sure that something is there
 			// if form is empty, nothing will happen
@@ -27,7 +27,7 @@ angular.module('todoController', [])
 				$scope.loading = true;
                console.log($scope.formData);
 				// call the create function from our service (returns a promise object)
-				Todos.create($scope.formData)
+				Foods.create($scope.formData)
 
 					// if successful creation, call our get function to get all the new todos
 					.success(function(data) {
@@ -52,7 +52,7 @@ angular.module('todoController', [])
 		$scope.deleteTodo = function(id) {
 			$scope.loading = true;
 
-			Todos.delete(id)
+			Foods.delete(id)
 				// if successful creation, call our get function to get all the new todos
 				.success(function(data) {
 					$scope.loading = false;

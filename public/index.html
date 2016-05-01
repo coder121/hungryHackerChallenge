@@ -35,7 +35,7 @@
 		<!-- HEADER AND TODO COUNT -->
 		<div class="jumbotron text-center">
             <h1>Food Ordering</h1> 
-            <h2>No. Of Orders <span class="label label-info">{{ todos.length }}</span></h2>
+            <h2>No. Of Orders <span class="label label-info">{{ orders.length }}</span></h2>
 		</div>
 
 		<!-- TODO LIST -->
@@ -44,8 +44,8 @@
 
 				
 
-				 LOOP OVER THE TODOS IN $scope.todos 
-				<div class="checkbox" ng-repeat="todo in todos">
+				 LOOP OVER THE TODOS IN $scope.orders 
+				<div class="checkbox" ng-repeat="todo in orders">
 					<label>
 						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
 					</label>
@@ -65,9 +65,9 @@
 				<form>
 					<div class="form-group">
 
-						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						Dish Name <input type="text" class="form-control text-left" placeholder="Pizza" ng-model="formData.foodName">
-                        Price <input type="Number" class="form-control text-left" ng-model="formData.price">
+						<!-- BIND THIS VALUE TO orderData.text IN ANGULAR -->
+						Dish Name <input type="text" class="form-control text-left" placeholder="Pizza" ng-model="orderData.foodName">
+                        Price <input type="Number" class="form-control text-left" ng-model="orderData.price">
 					</div>
 
 					<!-- createOrder() WILL CREATE NEW TODOS -->
@@ -75,7 +75,7 @@
 				</form>
 			</div>
             	<div id="display-Dishes"class="col-md-6">
-				<!--<div ng-repeat="todo in todos">
+				<!--<div ng-repeat="todo in orders">
 					<label>
 						<h3> {{todo.foodName}}:{{todo.price}}</h3>
                         
@@ -85,7 +85,7 @@
 
 				
 
-				<!-- LOOP OVER THE TODOS IN $scope.todos -->
+				<!-- LOOP OVER THE TODOS IN $scope.orders -->
 				<div class="checkbox" >
 					<!--<label>
 						<h3><input type="checkbox" ng-click="deleteTodo(todo._id)"> {{todo.foodName}}:{{todo.price}}</h3>
@@ -100,7 +100,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr ng-repeat="todo in todos">
+                      <tr ng-repeat="todo in orders">
                           <!--<td><input type="checkbox" ng-click="deleteTodo(todo._id)"></td>-->
                         <td>{{todo.foodName}}</td>
                         <td>{{todo.price}}</td>

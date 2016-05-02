@@ -1,0 +1,23 @@
+[
+  {
+    "price": 10,
+    "foodName": "Pizza"
+  },
+  {
+    
+    "price": 1,
+    "foodName": "Cake"
+  },
+  {
+    "price":5,
+    "foodName": "Ice Cream"
+  },
+  {
+    "price":9,
+     "foodName": "Noodles"
+  },
+  {
+    "price":2,
+     "foodName": "Candy"
+  }
+]

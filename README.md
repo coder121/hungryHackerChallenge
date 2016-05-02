@@ -27,7 +27,7 @@ This repo corresponds to food ordering task [gesto](https://stackedit.io/viewer#
 3. DELETE	/api/food/:food_id	`Delete a single order`
 4. GET	/api/total	`Total the price of all orders (use 7.5% for tax)`
 
-## Bonus
+### Bonus API
 1. GET	/api/menu	`Return all the menu items`
 2. POST /api/menu   `Create a single menu item`
 3. POST /api/menu/all  `Create menu item from list of items`

@@ -18,5 +18,13 @@ angular.module('foodService', [])
             return $http.get('/api/total');
             }
 		}
+	}])
+
+	.factory('Menu', ['$http',function($http) {
+		return {
+			get : function() {
+				return $http.get('/api/menu');
+			}
+		}
 	}]);
 

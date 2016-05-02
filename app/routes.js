@@ -37,7 +37,7 @@ function getTotal(res) {
         }
         var subTotal=0;
         for (var i=0;i<Orders.length;i++){
-            subTotal+=Orders[i]['price'];
+            subTotal+=Orders[i]['total'];
         }
         var taxPercent=7.5;
         var tax=(taxPercent/100)*subTotal;
@@ -75,6 +75,7 @@ module.exports = function (app) {
             foodName: req.body.foodName,
             price:req.body.price,
             quantity:req.body.quantity,
+            total:req.body.total,
             done: false
         }, function (err, Order) {
             if (err)

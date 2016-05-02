@@ -24,7 +24,7 @@
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
 
 	<script src="js/controllers/main.js"></script> <!-- load up our controller -->
-	<script src="js/services/todos.js"></script> <!-- load our todo service -->
+	<script src="js/services/food.js"></script> <!-- load our todo service -->
 	<script src="js/core.js"></script> <!-- load our main application -->
 
 </head>
@@ -38,36 +38,14 @@
             <h2>No. Of Orders <span class="label label-info">{{ orders.length }}</span></h2>
 		</div>
 
-		<!-- TODO LIST -->
-	<!--	<div id="todo-list" class="row">
-			<div class="col-sm-4 col-sm-offset-4">
-
-				
-
-				 LOOP OVER THE TODOS IN $scope.orders 
-				<div class="checkbox" ng-repeat="todo in orders">
-					<label>
-						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
-					</label>
-				</div>
-
-				<p class="text-center" ng-show="loading">
-					<span class="fa fa-spinner fa-spin fa-3x"></span>
-				</p>
-
-			</div>
-		</div>-->
-
-		<!-- FORM TO CREATE TODOS -->
-       
 		<div id="todo-form" class="row padding">
 			<div class="col-md-4">
 				<form>
 					<div class="form-group">
 
 						<!-- BIND THIS VALUE TO orderData.text IN ANGULAR -->
-						Dish Name <input type="text" class="form-control text-left" placeholder="Pizza" ng-model="orderData.foodName">
-                        Price <input type="Number" class="form-control text-left" ng-model="orderData.price">
+						<h4>Dish Name </h4><input type="text" class="form-control text-left" placeholder="Pizza" ng-model="orderData.foodName">
+                        <h4>Price</h4> <input type="Number" class="form-control text-left" ng-model="orderData.price">
 					</div>
 
 					<!-- createOrder() WILL CREATE NEW TODOS -->
@@ -75,17 +53,6 @@
 				</form>
 			</div>
             	<div id="display-Dishes"class="col-md-6">
-				<!--<div ng-repeat="todo in orders">
-					<label>
-						<h3> {{todo.foodName}}:{{todo.price}}</h3>
-                        
-					</label>
-				</div>-->
-                   
-
-				
-
-				<!-- LOOP OVER THE TODOS IN $scope.orders -->
 				<div class="checkbox" >
 					<!--<label>
 						<h3><input type="checkbox" ng-click="deleteTodo(todo._id)"> {{todo.foodName}}:{{todo.price}}</h3>
@@ -131,8 +98,8 @@
   
     </div>
 		<div class="text-center text-muted">
-			<p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
-			<p>Read the <a href="http://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular">tutorial</a>.</p>
+			<p>A demo by <a href="https://www.linkedin.com/in/siddiq235">Siddiq</a>.</p>
+			
 		</div>
 
 	

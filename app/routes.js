@@ -98,11 +98,29 @@ module.exports = function (app) {
             getOrder(res);
         });
     });
-    
-       app.get('/api/menu', function (req, res) {
-        // use mongoose to get all Orders in the database
+         app.get('/api/menu', function (req, res) {
+        // use mongoose to get all menu items from the database
          getMenu(res);
        });
+       app.post('/api/menu/all', function (req, res) {
+        // use mongoose to post more than one Items in the database
+           var menuItems=req.body;
+           for(var i=0;i<menuItems.length;i++){
+               var item=menuItems[i];
+                Menu.create({
+                foodName: item.foodName,
+                price:item.price,
+                done: false
+            }, function (err, Order) {
+                if (err)
+                    res.send(err);
+               
+            });
+           }
+        
+            getMenu(res);
+       });
+      
       app.post('/api/menu', function (req, res) {
 
         // create a Order, information comes from AJAX request from Angular

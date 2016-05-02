@@ -1,6 +1,6 @@
-# Node Todo App
+# FOOD ORDERING APP
 
-A Node app built with MongoDB and Angular. For demonstration purposes and a tutorial.
+A food ordering app built with MongoDB and Angular. 
 
 Node provides the RESTful API. Angular provides the frontend and accesses the API. MongoDB stores like a hoarder.
 
@@ -28,4 +28,4 @@ Each branch represents a certain tutorial.
 
 Happy Todo-ing!
 
-![Todo-aholic](http://i.imgur.com/ikyqgrn.png)
+![Food-Ordering](http://imgur.com/IMdn9nY)

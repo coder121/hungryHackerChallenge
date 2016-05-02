@@ -1,35 +1,49 @@
-var Food = require('./models/food');
+var Order = require('./models/order');
+var Menu= require('./models/menu');
 
-function getFood(res) {
-    Food.find(function (err, Foods) {
+function getOrder(res) {
+    Order.find(function (err, Orders) {
 
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) {
             res.send(err);
         }
        
-        res.json(Foods); // return all Food in JSON format
+        res.json(Orders); // return all Order in JSON format
+    });
+}
+;
+
+function getMenu(res) {
+    Menu.find(function (err, menuItems) {
+
+        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+        if (err) {
+            res.send(err);
+        }
+       
+        res.json(menuItems); // return all Order in JSON format
     });
 }
 ;
 
 
 function getTotal(res) {
-  Food.find(function (err, Foods) {
+  Order.find(function (err, Orders) {
         
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) {
             res.send(err);
         }
         var subTotal=0;
-        for (var i=0;i<Foods.length;i++){
-            subTotal+=Foods[i]['price'];
+        for (var i=0;i<Orders.length;i++){
+            subTotal+=Orders[i]['price'];
         }
         var taxPercent=7.5;
         var tax=(taxPercent/100)*subTotal;
         var estimatedTotal=subTotal+tax;
         
-       res.json({"subTotal":subTotal,"estimatedTotal":estimatedTotal,"tax":tax});// return all Food in JSON format
+       res.json({"subTotal":subTotal,"estimatedTotal":estimatedTotal,"tax":tax});// return all Order in JSON format
     });
   
 };
@@ -37,8 +51,8 @@ function getTotal(res) {
 module.exports = function (app) {
     
       app.get('/api/total', function (req, res) {
-        // use mongoose to get all Foods in the database
-         var result=getTotal(res);
+        // use mongoose to get all Orders in the database
+         getTotal(res);
       
           
           
@@ -47,42 +61,62 @@ module.exports = function (app) {
     });
 
     // api ---------------------------------------------------------------------
-    // get all Foods
+    // get all Orders
     app.get('/api/food', function (req, res) {
-        // use mongoose to get all Foods in the database
-        getFood(res);
+        // use mongoose to get all Orders in the database
+        getOrder(res);
     });
 
-    // create Food and send back all Foods after creation
+    // create Order and send back all Orders after creation
     app.post('/api/food', function (req, res) {
 
-        // create a Food, information comes from AJAX request from Angular
-        Food.create({
+        // create a Order, information comes from AJAX request from Angular
+        Order.create({
+            foodName: req.body.foodName,
+            price:req.body.price,
+            quantity:req.body.quantity,
+            done: false
+        }, function (err, Order) {
+            if (err)
+                res.send(err);
+
+            // get and return all the Orders after you create another
+            getOrder(res);
+        });
+
+    });
+
+    // delete a Order
+    app.delete('/api/food/:food_id', function (req, res) {
+        Order.remove({
+            _id: req.params.food_id
+        }, function (err, Order) {
+            if (err)
+                res.send(err);
+
+            getOrder(res);
+        });
+    });
+    
+       app.get('/api/menu', function (req, res) {
+        // use mongoose to get all Orders in the database
+         getMenu(res);
+       });
+      app.post('/api/menu', function (req, res) {
+
+        // create a Order, information comes from AJAX request from Angular
+        Menu.create({
             foodName: req.body.foodName,
             price:req.body.price,
             done: false
-        }, function (err, Food) {
+        }, function (err, Order) {
             if (err)
                 res.send(err);
-
-            // get and return all the Foods after you create another
-            getFood(res);
+            getMenu(res);
         });
 
     });
-
-    // delete a Food
-    app.delete('/api/food/:food_id', function (req, res) {
-        Food.remove({
-            _id: req.params.food_id
-        }, function (err, Food) {
-            if (err)
-                res.send(err);
-
-            getFood(res);
-        });
-    });
-
+    
     // application -------------------------------------------------------------
     app.get('*', function (req, res) {
         res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)

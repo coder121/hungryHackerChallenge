@@ -21,6 +21,13 @@ Node provides the RESTful API. Angular provides the frontend and accesses the AP
 
 This repo corresponds to food ordering on [gesto](https://stackedit.io/viewer#!url=https://drive.google.com/uc?id=0BzhyPB16kZZ0dnlxU1lKckRMVDQ)
 
+## API
+GET	/api/food	Get all of the food items in the order
+POST	/api/food	Create a single food item
+DELETE	/api/food/:food_id	Delete a single food item
+GET	/api/total	Total the price of all food items (use 7.5% for tax)
+
+
 
 
 Happy Ordering!

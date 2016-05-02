@@ -12,6 +12,8 @@ module.exports = mongoose.model('Order', {
     quantity:{
         type:Number,
         default:1
-    
-}
+    },
+    total:{
+        type:Number
+    }
 });

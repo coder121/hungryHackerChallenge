@@ -25,4 +25,4 @@ This repo corresponds to food ordering on [gesto](https://stackedit.io/viewer#!u
 
 Happy Ordering!
 
-![Food-Ordering](http://imgur.com/zaMvOt6)
+![Food-Ordering](http://i.imgur.com/zaMvOt6.png?1)

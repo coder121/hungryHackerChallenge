@@ -1,0 +1,5 @@
+For the bonus phase
+I created a sperated end point called api/menu which returns the menuItems(itemname,price)
+This I used in creating a select option of user where he/she can directly select menu item and quantity
+And other feature I added is the ability of use to remove the item from front ent. I displayed the current orders and total in the form
+of table and the user can remove an item by clicking the remove button as shown in the picture

@@ -1,4 +1,5 @@
-For the bonus phase I created a sperated end point called api/menu which returns the menuItems(itemname,price).
+For the bonus phase I created a seperated end point called api/menu which returns the menuItems(itemname,price) and api/menu/all which can be used to post list of new menu items. Please menu.json file for posting new items. If you want to post single item you can use the end point api/menu
+
 I used this endpoint,in creating a select option of user where he/she can directly select menu item and quantity.
 Other feature I added is the ability of use to remove the item from front ent. I displayed the current orders and total in the form
 of table and the user can remove an item by clicking the remove button as shown in the picture
